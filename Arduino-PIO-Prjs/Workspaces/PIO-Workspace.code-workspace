@@ -1,11 +1,15 @@
 {
 	"folders": [
 		{
-			"path": "C:\\Users\\mmartinez\\Documents\\PlatformIO\\ArduinoLibs"
-		},
-		{
 			"name": "SquareSignal",
 			"path": "C:\\Users\\mmartinez\\Documents\\DIY\\Arduino-PIO-Prjs\\Prjs\\SquareSignal"
+		},
+		{
+			"path": "C:\\Users\\mmartinez\\Documents\\DIY\\ArduinoLibs"
+		},
+		{
+			"name": "MotorAndJoystick",
+			"path": "C:\\Users\\mmartinez\\Documents\\DIY\\Arduino-PIO-Prjs\\Prjs\\MotorAndJoystick"
 		}
 	],
 	"settings": {}
