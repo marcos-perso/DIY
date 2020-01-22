@@ -82,7 +82,7 @@ MyUltrasoundSensor UltrasoundSensor(SR05_TRIG, SR05_ECHO);
 void setup()
 {
 
-  // Setrial communication
+  // Serial communication
   Serial.begin(9600);                // set up Serial library at 9600 bps
   Serial.println(F("Hello world!")); // prints hello with ending line break
 

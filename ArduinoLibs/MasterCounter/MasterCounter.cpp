@@ -2,6 +2,7 @@
   MasterCounter.cpp - Counter that generates a loop number to be used by other modules
 */
 
+#include "Arduino.h"
 #include "MasterCounter.h"
 
 // Constructor

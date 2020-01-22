@@ -1,0 +1,340 @@
+EESchema Schematic File Version 4
+LIBS:MotorWithJoystick-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Stepper motor with joystick"
+Date "2019-11-19"
+Rev "R0"
+Comp "NarcsSoft"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Wire Wire Line
+	2651 3089 2651 3092
+$Comp
+L MCU_Module:Arduino_UNO_R3 A1
+U 1 1 5DD083DF
+P 2712 3050
+F 0 "A1" H 2712 4231 50  0000 C CNN
+F 1 "Arduino_UNO_R3" H 2712 4140 50  0000 C CNN
+F 2 "Module:Arduino_UNO_R3" H 2862 2000 50  0001 L CNN
+F 3 "https://www.arduino.cc/en/Main/arduinoBoardUno" H 2512 4100 50  0001 C CNN
+	1    2712 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 1500 3808 1500
+Wire Wire Line
+	2212 3250 1900 3250
+Wire Wire Line
+	1900 3250 1900 1500
+$Comp
+L power:GND #PWR01
+U 1 1 5DD187CA
+P 4200 5500
+F 0 "#PWR01" H 4200 5250 50  0001 C CNN
+F 1 "GND" H 4205 5327 50  0000 C CNN
+F 2 "" H 4200 5500 50  0001 C CNN
+F 3 "" H 4200 5500 50  0001 C CNN
+	1    4200 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 4501 2712 4501
+$Comp
+L power:PWR_FLAG #FLG03
+U 1 1 5DD3938A
+P 4460 5500
+F 0 "#FLG03" H 4460 5575 50  0001 C CNN
+F 1 "PWR_FLAG" H 4460 5673 50  0000 C CNN
+F 2 "" H 4460 5500 50  0001 C CNN
+F 3 "~" H 4460 5500 50  0001 C CNN
+	1    4460 5500
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4460 5404 4200 5404
+Wire Wire Line
+	4200 4501 4200 5404
+Wire Wire Line
+	4460 5404 4460 5500
+Connection ~ 4200 5404
+Wire Wire Line
+	4200 5404 4200 5500
+Wire Wire Line
+	2812 4149 2812 4150
+Wire Wire Line
+	2712 4150 2712 4501
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 5DD43C7E
+P 2935 4200
+F 0 "#FLG02" H 2935 4275 50  0001 C CNN
+F 1 "PWR_FLAG" H 2935 4373 50  0000 C CNN
+F 2 "" H 2935 4200 50  0001 C CNN
+F 3 "~" H 2935 4200 50  0001 C CNN
+	1    2935 4200
+	1    0    0    1   
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG01
+U 1 1 5DD4565A
+P 2424 4217
+F 0 "#FLG01" H 2424 4292 50  0001 C CNN
+F 1 "PWR_FLAG" H 2424 4390 50  0000 C CNN
+F 2 "" H 2424 4217 50  0001 C CNN
+F 3 "~" H 2424 4217 50  0001 C CNN
+	1    2424 4217
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	2612 4149 2612 4150
+Wire Wire Line
+	2612 4150 2612 4190
+Wire Wire Line
+	2612 4190 2424 4190
+Wire Wire Line
+	2424 4190 2424 4217
+Connection ~ 2612 4150
+Wire Wire Line
+	2812 4150 2812 4180
+Wire Wire Line
+	2812 4180 2935 4180
+Wire Wire Line
+	2935 4180 2935 4200
+Connection ~ 2812 4150
+Wire Wire Line
+	2212 3350 1860 3350
+Wire Wire Line
+	1860 3350 1860 1468
+Wire Wire Line
+	1860 1468 3920 1468
+Wire Wire Line
+	2212 3450 1819 3450
+Wire Wire Line
+	1819 3450 1819 1429
+Wire Wire Line
+	1819 1429 4014 1429
+Wire Wire Line
+	2212 3550 1748 3550
+Wire Wire Line
+	1748 3550 1748 1364
+Wire Wire Line
+	1748 1364 4091 1364
+$Comp
+L Transistor_Array:ULN2803A U1
+U 1 1 5DD4FC40
+P 5763 3471
+F 0 "U1" H 5763 4038 50  0000 C CNN
+F 1 "ULN2803A" H 5763 3947 50  0000 C CNN
+F 2 "" H 5813 2821 50  0001 L CNN
+F 3 "http://www.ti.com/lit/ds/symlink/uln2803a.pdf" H 5863 3271 50  0001 C CNN
+	1    5763 3471
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3808 1500 3808 3271
+Wire Wire Line
+	3808 3271 5363 3271
+Wire Wire Line
+	3920 1468 3920 3371
+Wire Wire Line
+	3920 3371 5363 3371
+Wire Wire Line
+	4014 1429 4014 3471
+Wire Wire Line
+	4014 3471 5363 3471
+Wire Wire Line
+	4091 1364 4091 3571
+Wire Wire Line
+	4091 3571 5363 3571
+$Comp
+L Motor:Stepper_Motor_unipolar_5pin M1
+U 1 1 5DD5BA1A
+P 8501 2596
+F 0 "M1" H 8423 2271 50  0000 C CNN
+F 1 "Stepper_Motor_unipolar_5pin" H 8423 2362 50  0000 C CNN
+F 2 "" H 8511 2586 50  0001 C CNN
+F 3 "http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0" H 8511 2586 50  0001 C CNN
+	1    8501 2596
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	6163 3271 8601 3271
+Wire Wire Line
+	8601 3271 8601 2896
+Text Label 8600 3124 1    50   ~ 0
+Blue
+Wire Wire Line
+	6163 3371 7797 3371
+Wire Wire Line
+	7797 3371 7797 2496
+Wire Wire Line
+	7797 2496 8201 2496
+Text Label 7980 2496 0    50   ~ 0
+Pink
+Text Label 8402 3228 1    50   ~ 0
+Yellow
+NoConn ~ 5363 3671
+NoConn ~ 5363 3771
+NoConn ~ 5363 3871
+NoConn ~ 5363 3971
+Wire Wire Line
+	8401 2896 8401 3471
+Wire Wire Line
+	6163 3471 8401 3471
+Wire Wire Line
+	6163 3571 8070 3571
+Wire Wire Line
+	8070 3571 8070 2696
+Wire Wire Line
+	8070 2696 8201 2696
+Text Label 8069 3041 1    50   ~ 0
+Orange
+NoConn ~ 6163 3671
+NoConn ~ 6163 3771
+NoConn ~ 6163 3871
+NoConn ~ 6163 3971
+$Comp
+L Device:Battery_Cell BT1
+U 1 1 5DD817C5
+P 7800 4199
+F 0 "BT1" H 7918 4295 50  0000 L CNN
+F 1 "Battery_Cell" H 7918 4204 50  0000 L CNN
+F 2 "" V 7800 4259 50  0001 C CNN
+F 3 "~" V 7800 4259 50  0001 C CNN
+	1    7800 4199
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 3999 7800 3800
+Wire Wire Line
+	7800 3800 8301 3800
+Wire Wire Line
+	8301 3800 8301 3171
+Text Label 8301 3176 1    50   ~ 0
+Red
+Text Label 7800 3975 1    50   ~ 0
+6V
+$Comp
+L power:GND #PWR03
+U 1 1 5DD8622A
+P 7400 4502
+F 0 "#PWR03" H 7400 4252 50  0001 C CNN
+F 1 "GND" H 7405 4329 50  0000 C CNN
+F 2 "" H 7400 4502 50  0001 C CNN
+F 3 "" H 7400 4502 50  0001 C CNN
+	1    7400 4502
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 4502 7400 4424
+Wire Wire Line
+	7800 4424 7800 4299
+Wire Wire Line
+	6163 3171 8301 3171
+Connection ~ 8301 3171
+Wire Wire Line
+	8301 3171 8301 2896
+$Comp
+L power:GND #PWR02
+U 1 1 5DD8DDCC
+P 5999 4300
+F 0 "#PWR02" H 5999 4050 50  0001 C CNN
+F 1 "GND" H 6004 4127 50  0000 C CNN
+F 2 "" H 5999 4300 50  0001 C CNN
+F 3 "" H 5999 4300 50  0001 C CNN
+	1    5999 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5999 4300 5999 4250
+Wire Wire Line
+	5999 4250 5763 4250
+Wire Wire Line
+	5763 4250 5763 4171
+Wire Wire Line
+	7400 4424 7800 4424
+NoConn ~ 3212 3850
+NoConn ~ 3212 3750
+NoConn ~ 2212 2450
+NoConn ~ 2212 2550
+NoConn ~ 3212 2450
+NoConn ~ 3212 2850
+NoConn ~ 3212 2650
+NoConn ~ 3212 3150
+NoConn ~ 3212 3250
+NoConn ~ 3212 3350
+NoConn ~ 3212 3450
+NoConn ~ 3212 3550
+NoConn ~ 2212 2650
+NoConn ~ 2212 2750
+NoConn ~ 2212 2950
+NoConn ~ 2212 3050
+NoConn ~ 2212 3150
+NoConn ~ 2212 3650
+NoConn ~ 2212 3750
+NoConn ~ 2212 2850
+NoConn ~ 2812 2050
+NoConn ~ 2612 2050
+$Comp
+L MyLibs:keyes_SJoys U2
+U 1 1 5DD5A79B
+P 5800 5600
+F 0 "U2" H 6130 5596 50  0000 L CNN
+F 1 "keyes_SJoys" H 6130 5505 50  0000 L CNN
+F 2 "" H 5900 5900 50  0001 L BNN
+F 3 "Thumb Joystick" H 5900 5900 50  0001 L BNN
+F 4 "Unavailable" H 5700 6000 50  0001 L BNN "Field4"
+F 5 "NarcsSoft" H 5700 6100 50  0001 L BNN "Field5"
+F 6 "None" H 5700 6050 50  0001 L BNN "Field6"
+F 7 "NarcsSoft" H 5700 6100 50  0001 L BNN "Field7"
+F 8 "MyLibs" H 5700 6150 50  0001 L BNN "Field8"
+	1    5800 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5DD60236
+P 5100 6300
+F 0 "#PWR0101" H 5100 6050 50  0001 C CNN
+F 1 "GND" H 5105 6127 50  0000 C CNN
+F 2 "" H 5100 6300 50  0001 C CNN
+F 3 "" H 5100 6300 50  0001 C CNN
+	1    5100 6300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 6300 5100 5900
+Wire Wire Line
+	5100 5900 5300 5900
+Wire Wire Line
+	2912 2050 2912 1875
+Wire Wire Line
+	2912 1875 3608 1875
+Wire Wire Line
+	3608 1875 3608 4184
+Wire Wire Line
+	3608 4184 5190 4184
+Wire Wire Line
+	5190 4184 5190 6000
+Wire Wire Line
+	5190 6000 5300 6000
+NoConn ~ 5300 5400
+Wire Wire Line
+	3212 3050 3485 3050
+Wire Wire Line
+	3485 3050 3485 5078
+Wire Wire Line
+	3485 5078 4839 5078
+Wire Wire Line
+	4839 5078 4839 5600
+Wire Wire Line
+	4839 5600 5300 5600
+NoConn ~ 5300 5500
+$EndSCHEMATC
