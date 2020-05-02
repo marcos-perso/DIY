@@ -10,6 +10,18 @@
 		{
 			"name": "MotorAndJoystick",
 			"path": "C:\\Users\\mmartinez\\Documents\\DIY\\Arduino-PIO-Prjs\\Prjs\\MotorAndJoystick"
+		},
+		{
+			"name": "Plantduino",
+			"path": "C:\\Users\\mmartinez\\Documents\\DIY\\Arduino-PIO-Prjs\\Prjs\\Plantduino"
+		},
+		{
+			"name": "LEDROBOT",
+			"path": "C:\\Users\\mmartinez\\Documents\\DIY\\Arduino-PIO-Prjs\\Prjs\\LEDROBOT"
+		},
+		{
+			"name": "DisplayYoli",
+			"path": "C:\\Users\\mmartinez\\Documents\\DIY\\Arduino-PIO-Prjs\\Prjs\\DisplayYoli"
 		}
 	],
 	"settings": {}

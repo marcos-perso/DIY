@@ -5,6 +5,14 @@
       where:
           K0: Nominal temperature
           R0: Nominal Resistence
+
+      KY-013 connections
+      S pin --> To Arduino
+      M pin --> VCC
+      - pin --> GND
+
+      R(S/-) = RNTC
+      R(S/M) = R0
 */
 
 #include "MyThermistor.h"
@@ -14,7 +22,6 @@
 MyThermistor::MyThermistor(int THERMISTOR_INPUT)
 {
 	this->THERMISTOR_INPUT = THERMISTOR_INPUT;
-  this->T_NOMINAL_K = this->CelsiusToKelvins(T_NOMINAL);
 
 }
 
@@ -22,7 +29,7 @@ MyThermistor::MyThermistor(int THERMISTOR_INPUT)
 void MyThermistor::GetTemperature()
 {
 
-  Serial.println(F("Displaying temperature!")); // prints hello with ending line break
+  Serial.println(F("Displaying temperature!"));
 
   // Calculate the resistence of the thermistor
   this->CalculateResistence();
@@ -30,7 +37,7 @@ void MyThermistor::GetTemperature()
   // Calculate the temperature (in Kelvins)
   this->CalculateAmbientTemperature();
 
-  Serial.print("Temperature: "); 
+  Serial.print(F("Temperature: ")); 
   Serial.print(this->KelvinsToCelsius(this->T_AMBIENT));
   Serial.println(" C"); 
 
@@ -47,20 +54,14 @@ void MyThermistor::CalculateResistence()
   Vo = analogRead(this->THERMISTOR_INPUT);
 
   // Calculate the resistence of the NTC
-  this->R_NTC = this->TH_R0 * ((1024.0 / (float)Vo) - 1.0); //calculate resistance on thermistor
-  this->C_A = 1/(this->CelsiusToKelvins(this->T_NOMINAL_K));
-  this->C_B = 1/this->B_VALUE;
+  this->R_NTC = this->TH_R0 / ((1023.0 / (float)Vo) - 1.0); //calculate resistance on thermistor
 
 }
 
 void MyThermistor::CalculateAmbientTemperature()
 {
-  // Variables
-  //float A = 0.003354;
-  //float B = 0.00025346;
-
   // Calculate the ambient temperature
-  this->T_AMBIENT = (1.0 / (this->C_A + this->C_B*log(this->R_NTC/this->R_NOMINAL)) ); // temperature in Kelvin
+  this->T_AMBIENT = (1.0 / (this->C_A + logf(this->R_NTC/this->R_NOMINAL)/this->B_VALUE) ); // temperature in Kelvin
 }
 
 //! \brief This method converts from Celsius to Kelvins
@@ -79,6 +80,6 @@ double MyThermistor::KelvinsToCelsius(double T_K)
 double MyThermistor::CelsiusToKelvins(double T_C)
 {
   double T_K;
-  T_K = T_C + 273.15; //convert Kelvin to Celcius
-  return T_K; //convert Kelvin to Celcius
+  T_K = T_C + 273.15; //convert Kelvin to Celsius
+  return T_K; //convert Celsius to Kelvins
 }

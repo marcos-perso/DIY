@@ -24,7 +24,7 @@ void MyDisplay::Display(int Number)
     // Show display
     String sNumber = String(Number);
     sNumber.length();
-    this->tm1637.display(0,12);
+    //this->tm1637.display(0,12);
     for (int i = 4- sNumber.length(); i < 4; i++)
     {
       tm1637.display(i,(String(sNumber.charAt(i-(4 -sNumber.length()))).toInt()));
