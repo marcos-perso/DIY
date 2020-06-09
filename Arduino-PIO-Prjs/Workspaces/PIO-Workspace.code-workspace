@@ -9,6 +9,10 @@
 		{
 			"name": "PlantuinoII",
 			"path": "..\\Prjs\\PlantuinoII"
+		},
+		{
+			"name": "FlashProgrammer",
+			"path": "..\\Prjs\\FlashProgrammer"
 		}
 	]
 }

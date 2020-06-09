@@ -3,6 +3,8 @@
 // ################
 #include <Arduino.h>
 #include "WiFi.h"
+//##include "ESP8266WiFi.h"
+#include "EEPROM.h"
 #include "PubSubClient.h"
 
 // ###################
@@ -15,20 +17,25 @@
 // ############
 // ### PINS ###
 // ############
+
+// LED
 #define LED_PIN 23
+// UART CONNECTION
 #define UART2_RX 16
 #define UART2_TX 17
 
 // #################
 // ### CONSTANTS ###
 // #################
+#define EEPROM_SIZE 64 // We retrieve 64 bytes from flash
 
 // #################
 // ### VARIABLES ###
 // #################
-const char* ssid = "YM-IoT";
-const char* password = "Zumarraga0001";
-const char* mqtt_server = "192.168.8.103";
+
+char ssid[20];
+char password[20];
+char mqtt_server[20];
 
 // ###############
 // ### OBJECTS ###
@@ -41,27 +48,27 @@ PubSubClient client(espClient);
 // ### FUNCTIONS ###
 // #################
 
-String translateEncryptionType(wifi_auth_mode_t encryptionType) {
- 
-  switch (encryptionType) {
-    case (WIFI_AUTH_OPEN):
-      return "Open";
-    case (WIFI_AUTH_WEP):
-      return "WEP";
-    case (WIFI_AUTH_WPA_PSK):
-      return "WPA_PSK";
-    case (WIFI_AUTH_WPA2_PSK):
-      return "WPA2_PSK";
-    case (WIFI_AUTH_WPA_WPA2_PSK):
-      return "WPA_WPA2_PSK";
-    case (WIFI_AUTH_WPA2_ENTERPRISE):
-      return "WPA2_ENTERPRISE";
-    case (WIFI_AUTH_MAX):
-      return "TBD";
-  }
-
-  return "Done";
-}
+//String translateEncryptionType(wifi_auth_mode_t encryptionType) {
+// 
+//  switch (encryptionType) {
+//    case (WIFI_AUTH_OPEN):
+//      return "Open";
+//    case (WIFI_AUTH_WEP):
+//      return "WEP";
+//    case (WIFI_AUTH_WPA_PSK):
+//      return "WPA_PSK";
+//    case (WIFI_AUTH_WPA2_PSK):
+//      return "WPA2_PSK";
+//    case (WIFI_AUTH_WPA_WPA2_PSK):
+//      return "WPA_WPA2_PSK";
+//    case (WIFI_AUTH_WPA2_ENTERPRISE):
+//      return "WPA2_ENTERPRISE";
+//    case (WIFI_AUTH_MAX):
+//      return "TBD";
+//  }
+//
+//  return "Done";
+//}
  
 void scanNetworks() {
  
@@ -82,22 +89,27 @@ void scanNetworks() {
     Serial.println(WiFi.BSSIDstr(i));
  
     Serial.print("Encryption type: ");
-    String encryptionTypeDescription = translateEncryptionType(WiFi.encryptionType(i));
-    Serial.println(encryptionTypeDescription);
+    //String encryptionTypeDescription = translateEncryptionType(WiFi.encryptionType(i));
+    //Serial.println(encryptionTypeDescription);
     Serial.println("-----------------------");
  
   }
 }
  
-void connectToNetwork() {
-  WiFi.begin(ssid, password);
+void connectToNetwork(char * _ssid, char* _password) {
+
+  WiFi.begin(_ssid, _password);
+
+  Serial2.print(F("Connecting to network1 "));
+  Serial2.println(_ssid);
+  Serial2.println(_password);
  
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
-    Serial.println("Establishing connection to WiFi..");
+    Serial2.println("Establishing connection to WiFi..");
   }
  
-  Serial.println("Connected to network");
+  Serial2.println("Connected to network");
  
 }
 
@@ -139,7 +151,7 @@ void reconnect() {
   while (!client.connected()) {
     Serial2.print("Attempting MQTT connection...");
     // Attempt to connect
-    if (client.connect("ESP32Client")) {
+    if (client.connect("PlantuinoII","PlantuinoII","pw-PlantuinoII")) {
       Serial2.println("connected");
       // Subscribe
       client.subscribe("Marcos");
@@ -161,13 +173,26 @@ void setup() {
 
   // PINOUT
   pinMode(LED_PIN, OUTPUT);
- 
+
+  // Start serial communications
   Serial.begin(9600);
-  //Serial2.begin(115200,UART2_RX,UART2_TX);
+  //Serial2.begin(9600);
   Serial2.begin(115200,SERIAL_8N1,UART2_RX,UART2_TX);
- 
+
+  // Get Wi-Fi credentials from flash
+  EEPROM.begin(EEPROM_SIZE);
+  EEPROM.get(0,ssid);
+  EEPROM.get(16,password);
+  //EEPROM.get(32,mqtt_server);
+  // Set the value of teh IP of the broker
+  strcpy(mqtt_server, "node02.myqtthub.com");
+
+
+  // Connect to Wi-Fi network
   //scanNetworks();
-  connectToNetwork();
+  Serial2.print(F("Connecting to network "));
+  Serial2.println(ssid);
+  connectToNetwork(ssid, password);
  
   Serial2.println(WiFi.macAddress());
   Serial2.println(WiFi.localIP());
@@ -189,11 +214,11 @@ void loop() {
   }
   client.loop();
 
- // Serial2.println(F("Marcos1"));
+  delay(1000);
+
 //  digitalWrite(LED_PIN,HIGH);
 //  delay(1000);
 //  digitalWrite(LED_PIN,LOW);
-//  delay(1000);
 
 //  client.publish("home", "Marcos");
 
