@@ -1,2 +1,2 @@
 # DIY
-DIY using Arduino (PlatformIO) and Raspberry Pi
+DIY projects using Raspberry, Arduino (PlatformIO) and Raspberry Pi
