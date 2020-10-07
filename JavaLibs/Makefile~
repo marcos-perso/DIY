@@ -1,0 +1,112 @@
+#################
+## DESCRIPTION ##
+#################
+
+# Makefile to generate javipse PAHO libraries
+
+
+#####################
+## PROJECT INCLUDE ##
+#####################
+
+########################
+## COMPILATION TARGET ##
+########################
+# Target to compile this module. 
+# It can be:
+# --> UBUNTU-PC: Linux over x386 architecture
+# --> UBUNTU-RPI: Linux over RPI
+TARGET = UBUNTU-PC
+
+
+##################
+## PROJECT INFO ##
+##################
+
+PRJ_DIR = .
+
+######################
+## ENVIRONMENT INFO ##
+######################
+PAHO_SRC = https://github.com/eclipse/paho.mqtt.java.git
+PAHO_DIR = paho.mqtt.java
+
+#####################
+### COMPILER INFO ###
+#####################
+
+ifeq ($(TARGET),UBUNTU-PC)
+	target_arch = -linux
+endif
+ifeq ($(TARGET),UBUNTU-RPI)
+	target_arch = -linux
+endif
+
+#########################
+### COMPILER COMMANDS ###
+#########################
+
+# Compilation flags
+J_FLAGS = 
+
+###########
+## TOOLS ##
+###########
+JAVAC = javac
+JAVA = java
+
+#############
+## SOURCES ##
+#############
+
+##############
+## INCLUDES ##
+##############
+
+##########
+## LIBS ##
+##########
+
+#####################
+## DERIVED SOURCES ##
+#####################
+
+##################
+### OTHER INFO ###
+##################
+
+#############
+## DEFAULT ##
+#############
+
+all: LINK
+
+##############
+## COMMANDS ##
+##############
+
+commands:
+	@echo ""
+	@echo "$(HEAD) Available commands: $(TAIL)"
+	@echo
+	@echo "  DOWNLOAD        : Download Eclipse libraries"
+	@echo "  COMPILE         : Compile the libraries"
+	@echo ""
+
+#############
+## ACTIONS ##
+#############
+
+INFO:
+	@echo " --- Compiler ---"
+	@echo $(JAVAC)
+	@echo $(JAVA)
+	@echo " --- Java classes (CLASS) ---"
+	@echo $(CLASS)
+
+DOWNLOAD:
+	@echo "Downloading from github..."
+	git clone $(PAHO_SRC)
+
+COMPILE: $(CLASS)
+	cd $(PAHO_DIR) ; mvn package -DskipTests
