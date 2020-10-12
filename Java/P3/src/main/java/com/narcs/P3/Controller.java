@@ -20,8 +20,11 @@ public static void main(String args[])
 	String topic        = "MQTT Examples";
 	String content      = "Message from MqttPublishSample";
 	int qos             = 2;
-	String broker       = "tcp://mqtt.eclipse.org:1883";
-	String clientId     = "JavaSample";
+	//String broker       = "tcp://mqtt.eclipse.org:1883";
+	String broker       = "tcp://node02.myqtthub.com:1883";
+	String clientId     = "PlantuinoII";
+	String loginId      = "PlantuinoII";
+	String password      = "pw-PlantuinoII";
 
 	MemoryPersistence persistence = new MemoryPersistence();
 	
@@ -29,6 +32,10 @@ public static void main(String args[])
 	    MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
 	    MqttConnectOptions connOpts = new MqttConnectOptions();
 	    connOpts.setCleanSession(true);
+	    connOpts.setPassword(password.toCharArray());
+	    connOpts.setUserName(loginId);
+
+	    
 	    System.out.println("Connecting to broker: "+broker);
 	    sampleClient.connect(connOpts);
 	    System.out.println("Connected");
