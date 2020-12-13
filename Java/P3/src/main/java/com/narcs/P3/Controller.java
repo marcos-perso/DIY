@@ -22,9 +22,9 @@ public static void main(String args[])
 	int qos             = 2;
 	//String broker       = "tcp://mqtt.eclipse.org:1883";
 	String broker       = "tcp://node02.myqtthub.com:1883";
-	String clientId     = "PlantuinoII";
-	String loginId      = "PlantuinoII";
-	String password      = "pw-PlantuinoII";
+	String clientId     = "PlantuinoIII";
+	String loginId      = "PlantuinoIII";
+	String password      = "pw-PlantuinoIII";
 
 	MemoryPersistence persistence = new MemoryPersistence();
 	
