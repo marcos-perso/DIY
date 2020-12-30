@@ -21,6 +21,9 @@
 # --> UBUNTU-RPI: Linux over RPI
 TARGET = UBUNTU-PC
 
+RPI_USER = pi
+RPI_SERVER = 10.10.1.3
+
 
 ##################
 ## PROJECT INFO ##
@@ -85,6 +88,7 @@ commands:
 	@echo
 	@echo "  RUN_CONTROLLER   : Run the controller"
 	@echo "  RUN_AGENT        : Run an agent"
+	@echo "  INSTALL_TO_RPI   : Install teh agent"
 	@echo ""
 	@echo " ---------------- DEBUG --------------------"
 	@echo "  SHOW_MANIFEST    : Show the manifest of tar file"
@@ -118,4 +122,6 @@ COMPILE_MVN_PRJ:
 CREATE_PACKAGE:
 	@cd $(MVN_PRJ_NAME); mvn -e package
 
-
+INSTALL_TO_RPI: CREATE_PACKAGE
+	 @echo "Sending to the RPI"
+	scp $(MVN_PRJ_NAME)/Agent/target/$(AGENT_JAR_FILE) $(RPI_USER)@$(RPI_SERVER):/home/$(RPI_USER)/plantuino3/.

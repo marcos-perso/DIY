@@ -5,6 +5,7 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import java.net.*;
 import java.util.*;
@@ -14,6 +15,7 @@ import java.time.format.*;
 import java.time.Duration;  
 import java.time.LocalDateTime;    
 import java.time.format.DateTimeFormatter;  
+import org.json.simple.*;
 
 
 public class Agent {
@@ -35,10 +37,12 @@ public class Agent {
     String loginId          = "PIII-Agent";
     String password         = "pw-PIII-Agent";
     String topic            = "Plantuino III Data";
+    String topic_control    = "Plantuino III Control";
     MemoryPersistence persistence = null;
     LocalDateTime CurrentTime, PastTime;
     int SendDataInterval;
     Duration MyInterval;
+    MqttClient client   = null;
     
     /* *************** */
     /* *** METHODS *** */
@@ -121,11 +125,27 @@ public class Agent {
 	    connOpts.setCleanSession(true);
 	    connOpts.setPassword(password.toCharArray());
 	    connOpts.setUserName(this.loginId);
+
+	    // --> Set the callback
+	    client.setCallback(new MqttCallback() {
+                    public void connectionLost(Throwable cause) {
+                    }
+		    
+                    public void messageArrived(String topic, MqttMessage message) throws Exception {
+                        System.out.println(String.format("Controller: received '%s'", new String(message.getPayload())));
+                    }
+		    
+                    public void deliveryComplete(IMqttDeliveryToken token) {
+                    }
+                });
 	    
 	    // --> Connect the client to the broker
 	    System.out.println("Connecting to broker: " + this.broker);
 	    this.sampleClient.connect(connOpts);
 	    System.out.println("Connected");
+
+	    // --> Subscribe to the relevant topic
+	    client.subscribe(this.topic_control);
 	    
 	} catch(MqttException me) {
 	    System.out.println("reason "+me.getReasonCode());

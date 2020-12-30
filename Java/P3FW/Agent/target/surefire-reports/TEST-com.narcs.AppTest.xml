@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.narcs.AppTest" time="0.027" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.narcs.AppTest" time="0.026" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
     <property name="java.specification.version" value="11"/>
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/test-classes:/home/marcos/Projects/DIY/Java/P3FW/Agent/target/classes:/home/marcos/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/marcos/.m2/repository/commons-cli/commons-cli/1.3/commons-cli-1.3.jar:/home/marcos/.m2/repository/org/eclipse/paho/org.eclipse.paho.client.mqttv3/1.2.5/org.eclipse.paho.client.mqttv3-1.2.5.jar:/home/marcos/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:"/>
+    <property name="java.class.path" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/test-classes:/home/marcos/Projects/DIY/Java/P3FW/Agent/target/classes:/home/marcos/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/marcos/.m2/repository/commons-cli/commons-cli/1.3/commons-cli-1.3.jar:/home/marcos/.m2/repository/org/eclipse/paho/org.eclipse.paho.client.mqttv3/1.2.5/org.eclipse.paho.client.mqttv3-1.2.5.jar:/home/marcos/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/home/marcos/.m2/repository/org/apache/ant/ant-jsch/1.9.4/ant-jsch-1.9.4.jar:/home/marcos/.m2/repository/org/apache/ant/ant/1.9.4/ant-1.9.4.jar:/home/marcos/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar:/home/marcos/.m2/repository/com/jcraft/jsch/0.1.50/jsch-0.1.50.jar:"/>
     <property name="java.vm.vendor" value="Ubuntu"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://ubuntu.com/"/>
@@ -16,9 +16,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/surefire/surefirebooter5536015425879117444.jar /home/marcos/Projects/DIY/Java/P3FW/Agent/target/surefire 2020-11-29T19-30-56_066-jvmRun1 surefire15526352631988162119tmp surefire_11787464472539368418tmp"/>
+    <property name="sun.java.command" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/surefire/surefirebooter7047756807347100111.jar /home/marcos/Projects/DIY/Java/P3FW/Agent/target/surefire 2020-12-20T18-32-25_665-jvmRun1 surefire4244280661960018484tmp surefire_114821107691581551553tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/test-classes:/home/marcos/Projects/DIY/Java/P3FW/Agent/target/classes:/home/marcos/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/marcos/.m2/repository/commons-cli/commons-cli/1.3/commons-cli-1.3.jar:/home/marcos/.m2/repository/org/eclipse/paho/org.eclipse.paho.client.mqttv3/1.2.5/org.eclipse.paho.client.mqttv3-1.2.5.jar:/home/marcos/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:"/>
+    <property name="surefire.test.class.path" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/test-classes:/home/marcos/Projects/DIY/Java/P3FW/Agent/target/classes:/home/marcos/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/marcos/.m2/repository/commons-cli/commons-cli/1.3/commons-cli-1.3.jar:/home/marcos/.m2/repository/org/eclipse/paho/org.eclipse.paho.client.mqttv3/1.2.5/org.eclipse.paho.client.mqttv3-1.2.5.jar:/home/marcos/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/home/marcos/.m2/repository/org/apache/ant/ant-jsch/1.9.4/ant-jsch-1.9.4.jar:/home/marcos/.m2/repository/org/apache/ant/ant/1.9.4/ant-1.9.4.jar:/home/marcos/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar:/home/marcos/.m2/repository/com/jcraft/jsch/0.1.50/jsch-0.1.50.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/marcos"/>
     <property name="user.language" value="en"/>
@@ -32,12 +32,12 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/surefire/surefirebooter5536015425879117444.jar"/>
+    <property name="surefire.real.class.path" value="/home/marcos/Projects/DIY/Java/P3FW/Agent/target/surefire/surefirebooter7047756807347100111.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.9.1+1-Ubuntu-0ubuntu1.20.04"/>
     <property name="user.name" value="marcos"/>
     <property name="path.separator" value=":"/>
-    <property name="os.version" value="5.4.0-48-generic"/>
+    <property name="os.version" value="5.4.0-58-generic"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
@@ -57,5 +57,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testApp" classname="com.narcs.AppTest" time="0.002"/>
+  <testcase name="testApp" classname="com.narcs.AppTest" time="0.001"/>
 </testsuite>

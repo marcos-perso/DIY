@@ -9,6 +9,7 @@ import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import javax.swing.*;
 import java.awt.*;
+import org.json.simple.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +24,7 @@ public class Controller {
     /* *** MEMBERS *** */
     /* *************** */
     String topic        = "Plantuino III Data";
+    String topic_control= "Plantuino III Control";
     String broker       = "tcp://node02.myqtthub.com:1883";
     String clientId     = "PIII-Controller";
     String loginId      = "PIII-Controller";
@@ -30,6 +32,7 @@ public class Controller {
     //String clientId     = "PlantuinoIII";
     //String loginId      = "PlantuinoIII";
     //String password     = "pw-PlantuinoIII";
+    MqttClient sampleClient = null;
     MemoryPersistence persistence = null;
     MqttClient client   = null;
 	
@@ -38,6 +41,9 @@ public class Controller {
     /* *************** */
     public void ConnectToBroker()
     {
+
+	// --> PAHO definitions
+	this.persistence = new MemoryPersistence();
 
 	try {
 
@@ -82,6 +88,56 @@ public class Controller {
 	    System.out.println("excep "+me);
 	    me.printStackTrace();
 	}
+    }
+
+    public void sendData()
+    {
+
+	// Create the message
+	JSONObject msg = new JSONObject();
+	JSONObject contents = new JSONObject();
+
+	contents.put("content","3");
+	msg.put("contents",contents);
+	
+	this.Send(msg);
+
+    }
+
+    public void Send(JSONObject msg)
+    {
+
+	String content      = "Message from Controller";
+	int qos             = 2;
+
+	try {
+
+	    
+	    
+	    // --> Publishing message
+	    content = msg.toJSONString();
+	    System.out.println("Publishing message: "+content);
+
+	    
+	    MqttMessage message = new MqttMessage(content.getBytes());
+	    message.setQos(qos);
+	    this.client.publish(this.topic_control, message);
+	    System.out.println("Message published");
+	    //sampleClient.disconnect();
+	    //System.out.println("Disconnected");
+	    //System.exit(0);
+	    
+	} catch(MqttException me) {
+	    System.out.println("reason "+me.getReasonCode());
+	    System.out.println("msg "+me.getMessage());
+	    System.out.println("loc "+me.getLocalizedMessage());
+	    System.out.println("cause "+me.getCause());
+	    System.out.println("excep "+me);
+	    me.printStackTrace();
+	    
+	} catch (Throwable t) {
+	    t.printStackTrace();
+	}     
     }
 
     /* ************ */
@@ -130,6 +186,11 @@ public class Controller {
 	// === Main FSM ===
 	Controller MyController = new Controller();
 	MyController.ConnectToBroker();
+
+	// === Send a starting control message ===
+	System.out.println("Sending starting control data");
+	System.out.println("");
+	MyController.sendData();
 
 	
     }
