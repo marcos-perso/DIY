@@ -5,9 +5,13 @@ DIY projects using Raspberry, Arduino (PlatformIO) and Raspberry Pi
 
 # General behaviour
 
-The whole system is composed of a controller and several agents
+The whole system is composed of at least one controller and several agents that perform teh actions.
+An MQTT broker (myqtthub)  
 
 # Controller:
 
 
-Agent
+# Agent
+
+# Links
+  * Myqtthub: ([https://myqtthub.com/](URL))
