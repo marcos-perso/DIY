@@ -1,0 +1,16 @@
+@startjson
+{
+   "msg":
+   {
+   	"Configuration":
+	{
+		"SendDataInterval":""
+	},
+	{
+		"Identity":"",
+   		"Temperature":"",
+   		"Humidity":""
+	}
+   }
+}
+@endjson

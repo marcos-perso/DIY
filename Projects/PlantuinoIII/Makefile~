@@ -1,0 +1,102 @@
+#################
+## DESCRIPTION ##
+#################
+
+# Makefile to generate the different components of the Plantuino III
+# platform
+# --> Plantuino III RPI Agent
+
+
+#####################
+## PROJECT INCLUDE ##
+#####################
+
+########################
+## COMPILATION TARGET ##
+########################
+# Target to compile this module. 
+# It can be:
+# --> UBUNTU-MATE-RPI: Ubuntu Mate RPI variant
+TARGET = UBUNTU-MATE-RPI
+
+RPI_USER = narcs
+RPI_HOST = 10.10.1.17
+
+
+##################
+## PROJECT INFO ##
+##################
+
+PRJ_DIR = .
+
+#####################
+### COMPILER INFO ###
+#####################
+
+ifeq ($(TARGET),UBUNTU-MATE-RPI)
+	target_arch = -linux
+endif
+
+###########
+## TOOLS ##
+###########
+PYTHON = python3
+
+##############
+## INCLUDES ##
+##############
+
+##########
+## LIBS ##
+##########
+
+####################
+### SOURCE FILES ###
+####################
+RPI_AGENT_PYTHON_SRC = ./RPI-Agent/python_source
+RPI_AGENT_SERVICE    = ./RPI-Agent/rpi-service
+
+
+##################
+### OTHER INFO ###
+##################
+
+#############
+## DEFAULT ##
+#############
+
+##############
+## COMMANDS ##
+##############
+
+commands:
+	@echo ""
+	@echo "$(HEAD) Available commands: $(TAIL)"
+	@echo
+	@echo " -------------- RPI Agent ------------------"
+	@echo ""
+	@echo "DEPLOY_TEST:        Deploying TEST into the RPI"
+	@echo "REBOOT_RPI :        Reboot Raspberry pi"
+	@echo "SSH_RPI    :        SSH into the RPI agent"
+	@echo ""
+	@echo " ---------------- DEBUG --------------------"
+
+#############
+## ACTIONS ##
+#############
+DEPLOY_TEST:
+	@echo "Copying files into RPI"
+	ls $(RPI_AGENT_PYTHON_SRC)
+	rcp $(RPI_AGENT_PYTHON_SRC)/agent.py $(RPI_USER)@$(RPI_HOST):.
+	rcp $(RPI_AGENT_SERVICE)/plantuinoIII.service $(RPI_USER)@$(RPI_HOST):/home/narcs/.
+	-ssh -t $(RPI_USER)@$(RPI_HOST) sudo mv /home/narcs/plantuinoIII.service /usr/lib/systemd/.
+	rcp $(RPI_AGENT_SERVICE)/toggle.sh $(RPI_USER)@$(RPI_HOST):/home/narcs/.
+
+REBOOT_RPI:
+	@echo "Rebooting..."
+	-ssh -t $(RPI_USER)@$(RPI_HOST) sudo shutdown -r now
+
+SSH_RPI:
+	@echo "SSH into the RPI"
+	ssh $(RPI_USER)@$(RPI_HOST)
+

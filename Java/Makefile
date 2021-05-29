@@ -88,7 +88,10 @@ commands:
 	@echo
 	@echo "  RUN_CONTROLLER   : Run the controller"
 	@echo "  RUN_AGENT        : Run an agent"
-	@echo "  INSTALL_TO_RPI   : Install teh agent"
+	@echo "  INSTALL_TO_RPI   : Install the agent"
+	@echo ""
+	@echo "  CREATE_DOC       : Create the Documentation"
+	@echo "  SHOW_DOC         : Show documentation"
 	@echo ""
 	@echo " ---------------- DEBUG --------------------"
 	@echo "  SHOW_MANIFEST    : Show the manifest of tar file"
@@ -96,6 +99,12 @@ commands:
 #############
 ## ACTIONS ##
 #############
+CREATE_DOC:
+	java -jar plantuml.jar doc/sequence.txt
+	java -jar plantuml.jar doc/json.txt
+SHOW_DOC:
+	feh doc/sequence.png &
+	feh doc/json.png &
 
 SHOW_MANIFEST:
 	cd P3; unzip -p target/P3-1.0-SNAPSHOT.jar META-INF/MANIFEST.MF

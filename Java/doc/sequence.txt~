@@ -1,0 +1,7 @@
+@startuml
+participant "controller1"
+participant "Agent1"
+participant "Agent2"
+participant "Data Topic"
+participant "Controller Topic"
+@enduml

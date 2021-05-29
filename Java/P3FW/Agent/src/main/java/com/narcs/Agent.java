@@ -113,7 +113,7 @@ public class Agent {
 	// --> PAHO definitions
 	this.persistence = new MemoryPersistence();
 
-	    // --> Create the client
+	// --> Create the client
 
 	try {
 
@@ -126,8 +126,9 @@ public class Agent {
 	    connOpts.setPassword(password.toCharArray());
 	    connOpts.setUserName(this.loginId);
 
+
 	    // --> Set the callback
-	    client.setCallback(new MqttCallback() {
+	    sampleClient.setCallback(new MqttCallback() {
                     public void connectionLost(Throwable cause) {
                     }
 		    
@@ -145,7 +146,7 @@ public class Agent {
 	    System.out.println("Connected");
 
 	    // --> Subscribe to the relevant topic
-	    client.subscribe(this.topic_control);
+	    sampleClient.subscribe(this.topic_control);
 	    
 	} catch(MqttException me) {
 	    System.out.println("reason "+me.getReasonCode());
@@ -241,7 +242,7 @@ public class Agent {
 			
 			break;
 		    case e_SendData:
-			System.out.println("Sending data");
+			System.out.println("SEND state");
 			System.out.println("");
 			MyAgent.sendData();
 			MyAgent.fsmState = t_fsmState.e_WaitState;
