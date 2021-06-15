@@ -20,4 +20,4 @@ The service is run automatically once deployed in the raspberry
 hhhh
 
 
-![Imageddd](/home/marcos/Projects/DIY/Projects/PlantuinoIII/Diagrams/PlantuinoIII.pngpng "Text to show on mouseover")
+![Imageddd](./Diagrams/PlantuinoIII.pngpng "Text to show on mouseover")
