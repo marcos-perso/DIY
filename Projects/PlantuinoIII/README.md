@@ -2,14 +2,15 @@
 
 
 ##DIRECTORY TREE
+<pre>
 PlantuinoIII
-   |
-   |--RPI-Agent   ==> Raspberry PI Plantuino III agent (1)
-         |
-	 |--- rpi-service
+   |  
+   |--RPI-Agent   ==> Raspberry PI Plantuino III agent (1)  
+     |  
+	 |--- rpi-service  
 	 |
-	 |--- python_source
-
+	 |--- python_source  
+</pre>
 
 
 ##(1) RPI AGENT
@@ -20,4 +21,4 @@ The service is run automatically once deployed in the raspberry
 hhhh
 
 
-![Imageddd](./Diagrams/PlantuinoIII.pngpng "Text to show on mouseover")
+![Imageddd](./Diagrams/PlantuinoIII.png "Text to show on mouseover")
