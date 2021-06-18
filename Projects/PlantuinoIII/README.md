@@ -4,12 +4,15 @@
 ##DIRECTORY TREE
 <pre>
 PlantuinoIII
-   |  
-   |--RPI-Agent   ==> Raspberry PI Plantuino III agent (1)  
-     |  
-	 |--- rpi-service  
-	 |
-	 |--- python_source  
+   |
+   |-----RPI-Agent   ==> Raspberry PI Plantuino III agent (1)
+   |    |
+   |    |--- rpi-service
+   |	|
+   |	|--- python_source
+   |
+   |--JavaController  ==> JAVA controller to be run in a PC (2)
+
 </pre>
 
 
@@ -22,3 +25,10 @@ hhhh
 
 
 ![Imageddd](./Diagrams/PlantuinoIII.png "Text to show on mouseover")
+
+The RPI Agent is implemented in Python
+
+##(2) Controller
+Controls the behaviour of the different agents.
+The controller is written in Java.
+A Java agent is also built for testing purposes. It is not maintained

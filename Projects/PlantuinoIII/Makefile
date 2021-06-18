@@ -29,6 +29,11 @@ RPI_HOST = 10.10.1.17
 
 PRJ_DIR = .
 PRJ_NAME = plantuinoIII
+MVN_PRJ_NAME = JavaController
+MVN_ORG_NAME = com.narcs
+VERSION = 1.0
+CONTROLLER_JAR_FILE = Controller-$(VERSION)-SNAPSHOT.jar
+AGENT_JAR_FILE = Agent-$(VERSION)-SNAPSHOT.jar
 
 #####################
 ### COMPILER INFO ###
@@ -74,17 +79,41 @@ commands:
 	@echo ""
 	@echo "$(HEAD) Available commands: $(TAIL)"
 	@echo
-	@echo " -------------- RPI Agent ------------------"
+	@echo " -------------- RPI Agent (PYTHON) ------------------"
 	@echo ""
 	@echo "DEPLOY_TEST:        Deploying TEST into the RPI"
 	@echo "REBOOT_RPI :        Reboot Raspberry pi"
 	@echo "SSH_RPI    :        SSH into the RPI agent"
+	@echo " "
+	@echo " -------------- PC Controller Agent (JAVA) ------------------"
+	@echo " "
+	@echo "  CLEAN_MVN       : Clean project"
+	@echo "  COMPILE_MVN_PRJ : Compile Maven project"
+	@echo "  CREATE_PACKAGE  : Create package"
+	@echo "  RUN_CONTROLLER   : Run the controller in the PC"
+	@echo "  RUN_AGENT        : Run an agent (DEBUG ONLY)"
 	@echo ""
 	@echo " ---------------- DEBUG --------------------"
 
 #############
 ## ACTIONS ##
 #############
+RUN_CONTROLLER:
+	java -jar $(MVN_PRJ_NAME)/Controller/target/$(CONTROLLER_JAR_FILE)
+RUN_AGENT:
+	java -jar $(MVN_PRJ_NAME)/Agent/target/$(AGENT_JAR_FILE)
+
+CLEAN_MVN:
+	@cd $(MVN_PRJ_NAME); mvn clean
+
+COMPILE_MVN_PRJ:
+	 @echo " --- Compiling project ---"
+	cd $(MVN_PRJ_NAME); mvn -e compile
+
+CREATE_PACKAGE:
+	@cd $(MVN_PRJ_NAME); mvn -e package
+
+
 DEPLOY_TEST:
 	@echo "======================================="
 	@echo "=== Depolying Plantuino III service ==="
