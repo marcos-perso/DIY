@@ -94,10 +94,22 @@ commands:
 	@echo "  RUN_AGENT        : Run an agent (DEBUG ONLY)"
 	@echo ""
 	@echo " ---------------- DEBUG --------------------"
+	@echo ""
+	@echo "  CREATE_DOC       : Create the Documentation"
+	@echo "  SHOW_DOC         : Show documentation"
+	@echo ""
+	@echo " ---------------- DEBUG --------------------"
 
 #############
 ## ACTIONS ##
 #############
+CREATE_DOC:
+	java -jar plantuml.jar doc/sequence.txt
+	java -jar plantuml.jar doc/json.txt
+SHOW_DOC:
+	feh doc/sequence.png &
+	feh doc/json.png &
+
 RUN_CONTROLLER:
 	java -jar $(MVN_PRJ_NAME)/Controller/target/$(CONTROLLER_JAR_FILE)
 RUN_AGENT:

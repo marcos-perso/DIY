@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.narcs.AppTest" time="0.026" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.narcs.AppTest" time="0.025" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-11-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/surefire/surefirebooter8480275775889134835.jar /home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/surefire 2021-06-18T21-31-26_420-jvmRun1 surefire15250490751357102047tmp surefire_115772531945481010362tmp"/>
+    <property name="sun.java.command" value="/home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/surefire/surefirebooter11932343912130000045.jar /home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/surefire 2021-06-20T21-04-54_033-jvmRun1 surefire11930738269769518057tmp surefire_114980116311230344743tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/test-classes:/home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/classes:/home/marcos/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/marcos/.m2/repository/commons-cli/commons-cli/1.3/commons-cli-1.3.jar:/home/marcos/.m2/repository/org/eclipse/paho/org.eclipse.paho.client.mqttv3/1.2.5/org.eclipse.paho.client.mqttv3-1.2.5.jar:/home/marcos/.m2/repository/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar:/home/marcos/.m2/repository/org/apache/ant/ant-jsch/1.9.4/ant-jsch-1.9.4.jar:/home/marcos/.m2/repository/org/apache/ant/ant/1.9.4/ant-1.9.4.jar:/home/marcos/.m2/repository/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar:/home/marcos/.m2/repository/com/jcraft/jsch/0.1.50/jsch-0.1.50.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/surefire/surefirebooter8480275775889134835.jar"/>
+    <property name="surefire.real.class.path" value="/home/marcos/Projects/DIY/Projects/PlantuinoIII/JavaController/Agent/target/surefire/surefirebooter11932343912130000045.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.11+9-Ubuntu-0ubuntu2.20.04"/>
     <property name="user.name" value="marcos"/>
@@ -57,5 +57,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="testApp" classname="com.narcs.AppTest" time="0.012"/>
+  <testcase name="testApp" classname="com.narcs.AppTest" time="0.013"/>
 </testsuite>

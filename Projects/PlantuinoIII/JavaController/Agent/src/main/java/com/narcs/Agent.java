@@ -146,6 +146,7 @@ public class Agent {
 	    System.out.println("Connected");
 
 	    // --> Subscribe to the relevant topic
+	    System.out.println("Subscribed to topic" + this.topic_control);
 	    sampleClient.subscribe(this.topic_control);
 	    
 	} catch(MqttException me) {

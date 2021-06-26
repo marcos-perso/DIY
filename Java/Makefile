@@ -76,8 +76,6 @@ commands:
 	@echo
 	@echo "  CREATE_MVN_PRJ  : Create Maven project"
 	@echo
-	@echo "  CREATE_DOC       : Create the Documentation"
-	@echo "  SHOW_DOC         : Show documentation"
 	@echo ""
 	@echo " ---------------- DEBUG --------------------"
 	@echo "  SHOW_MANIFEST    : Show the manifest of tar file"
@@ -85,12 +83,6 @@ commands:
 #############
 ## ACTIONS ##
 #############
-CREATE_DOC:
-	java -jar plantuml.jar doc/sequence.txt
-	java -jar plantuml.jar doc/json.txt
-SHOW_DOC:
-	feh doc/sequence.png &
-	feh doc/json.png &
 
 SHOW_MANIFEST:
 	cd P3; unzip -p target/P3-1.0-SNAPSHOT.jar META-INF/MANIFEST.MF
@@ -102,6 +94,8 @@ CREATE_MVN_PRJ:
 	@echo "cd $(MVN_PRJ_NAME); mvn -e -U -B archetype:generate -DgroupId=$(MVN_ORG_NAME) -DartifactId=Controller"
 	@echo "cd $(MVN_PRJ_NAME); mvn -e -U -B archetype:generate -DgroupId=$(MVN_ORG_NAME) -DartifactId=Agent"
 
-INSTALL_TO_RPI: CREATE_PACKAGE
+no
+INSTALL_TO_RPI: CREATE_PACKAGE:w
+
 	 @echo "Sending to the RPI"
 	scp $(MVN_PRJ_NAME)/Agent/target/$(AGENT_JAR_FILE) $(RPI_USER)@$(RPI_SERVER):/home/$(RPI_USER)/plantuino3/.

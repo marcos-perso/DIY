@@ -1,0 +1,9 @@
+@startuml
+participant "controller"
+participant "Data Topic"
+participant "Control Topic"
+participant "Agent"
+
+Agent --> "Data Topic": "Sending Data"
+Agent --> "Data Topic": "Sending Data"
+@enduml

@@ -12,6 +12,8 @@ PlantuinoIII
    |	|--- python_source
    |
    |--JavaController  ==> JAVA controller to be run in a PC (2)
+   |
+   |--doc ==> Contains documentation (figures)
 
 </pre>
 
@@ -29,6 +31,17 @@ hhhh
 The RPI Agent is implemented in Python
 
 ##(2) Controller
-Controls the behaviour of the different agents.
-The controller is written in Java.
-A Java agent is also built for testing purposes. It is not maintained
+Controls the behaviour of the different agents.  
+The controller is written in Java.  
+A Java agent is also built for testing purposes. It is not maintained  
+The __GUI__ framework is built using __swing__  
+
+# Exchange of messages between Controller and Agent
+Communication is done via an MQTT broker
+There are two communication topics:
+
+* __Config topic__. Used to push configuration data from the controller to agents
+* __Data topic__. Use to send data from agents to controllers
+
+__Agents__ subscribe to the Config topic at startup.
+__Controllers__ subscribe to the Data topic at startup
